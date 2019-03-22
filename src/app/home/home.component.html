@@ -1,3 +1,20 @@
-<p>
-  home-component works!
-</p>
+<div *ngIf="!!canTake">
+  <mat-card color="primary">
+    <mat-card-title>
+      You can take more Paracetemol
+    </mat-card-title>
+    <mat-card-content>
+      <button mat-raised-button color="primary">
+        Take Paracetemol
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="!canTake">
+  <mat-card color="warn">
+    <mat-card-title>
+      You cannot take more Paracetemol
+    </mat-card-title>
+  </mat-card>
+</div>
