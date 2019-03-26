@@ -1,3 +1,10 @@
-<p>
-  history works!
-</p>
+<div *ngFor="let drug of drugHistory">
+  <mat-card color="primary">
+    <mat-card-title>
+      {{drugName}}
+    </mat-card-title>
+    <mat-card-content>
+      {{drug | date:'MM/dd/yyyy @ h:mma'}}
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from "rxjs";
+
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  public drugHistory: any;
+  public drugName: string;
+  private sessionSub: Subscription;
 
-  ngOnInit() {
+  constructor(session: SessionService) {
+    this.sessionSub = session.getObservableData().subscribe(
+      (data: any) => {
+        this.drugHistory = data.drugHistory;
+        this.drugName = data.drugName;
+      }
+    );
+  }
+
+  ngOnInit() { }
+
+  public ngOnDestroy(): void {
+    if (this.sessionSub) {
+      this.sessionSub.unsubscribe();
+    }
   }
 
 }

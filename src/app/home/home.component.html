@@ -4,14 +4,14 @@
       You can take more Paracetemol
     </mat-card-title>
     <mat-card-content>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="onDrugTaken()">
         Take Paracetemol
       </button>
     </mat-card-content>
   </mat-card>
 </div>
 
-<div *ngIf="!canTake">
+<div *ngIf=" !canTake">
   <mat-card color="warn">
     <mat-card-title>
       You cannot take more Paracetemol

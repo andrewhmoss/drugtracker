@@ -1,4 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -19,6 +20,7 @@ describe('NavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
       imports: [
+        RouterTestingModule,
         NoopAnimationsModule,
         LayoutModule,
         MatButtonModule,
