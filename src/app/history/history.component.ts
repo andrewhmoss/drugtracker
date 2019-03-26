@@ -14,7 +14,7 @@ export class HistoryComponent implements OnInit {
   public drugName: string;
   private sessionSub: Subscription;
 
-  constructor(session: SessionService) {
+  constructor(private session: SessionService) {
     this.sessionSub = session.getObservableData().subscribe(
       (data: any) => {
         this.drugHistory = data.drugHistory;
@@ -29,6 +29,10 @@ export class HistoryComponent implements OnInit {
     if (this.sessionSub) {
       this.sessionSub.unsubscribe();
     }
+  }
+
+  public onClearHistory(): void {
+    this.session.reset();
   }
 
 }

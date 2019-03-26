@@ -1,10 +1,16 @@
+<div *ngIf="!!drugHistory && drugHistory.length > 0">
+  <button mat-raised-button color="warn" (click)="onClearHistory()">
+    Clear History
+  </button>
+</div>
+
 <div *ngFor="let drug of drugHistory">
   <mat-card color="primary">
     <mat-card-title>
       {{drugName}}
     </mat-card-title>
     <mat-card-content>
-      {{drug | date:'MM/dd/yyyy @ h:mma'}}
+      Taken at {{drug | date:'MM/dd/yyyy @ h:mma'}}
     </mat-card-content>
   </mat-card>
 </div>

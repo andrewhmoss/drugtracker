@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatSidenavModule, MatToolbarModule, MatListModule,
+  MatIconModule, MatCardModule
+} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 
 import { HistoryComponent } from './history.component';
 
@@ -8,9 +13,17 @@ describe('HistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoryComponent ]
+      imports: [
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatCardModule,
+        MatListModule
+      ],
+      declarations: [HistoryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
