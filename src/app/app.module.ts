@@ -14,6 +14,8 @@ import { AboutComponent } from './about/about.component';
 import { HistoryComponent } from './history/history.component';
 import { SessionService } from './services/session.service';
 import { DosageService } from './services/dosage.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { DosageService } from './services/dosage.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     SessionService,
